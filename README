@@ -16,7 +16,9 @@ Workflow GIT défini : Git-Flow
 
 Type d'application : TODO-List
 
-
+Docker : 
+	commande pour création d'image -> "docker build -t <NomImage> ."
+	A executer à la racine ou se trouve le DockerFile en question.
 Autres :
 
 	- Utilisation des conventions de codage Karma-Runner.
