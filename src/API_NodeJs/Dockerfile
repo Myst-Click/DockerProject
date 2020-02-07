@@ -1,7 +1,7 @@
 FROM node:10
 
 # Create app directory
-WORKDIR /opt/src/appContainer
+WORKDIR /opt/src/DockerContainer/API
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
