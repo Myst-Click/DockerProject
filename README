@@ -10,7 +10,7 @@ Trois taches principales sont à effectuer:
 
 Workflow GIT défini : Git-Flow
 	1 branche "master" contient les versions stables du projet
-	1 branche "developp" contient le développement du projet. On y prépare  	les changement en vue de la prochaine release dans "master"
+	1 branche "developp" contient le développement du projet. On y prépare les changement en vue de la prochaine release dans "master"
 	
 	Des branches secondaires "feature" contenant chaque fonctionnalité.
 
@@ -20,3 +20,4 @@ Type d'application : TODO-List
 Autres :
 
 	- Utilisation des conventions de codage Karma-Runner.
+	(http://karma-runner.github.io/4.0/dev/git-commit-msg.html)
