@@ -1,0 +1,22 @@
+							Version 0.1 07/02/2020
+
+Introduction Project : 
+
+DockerProject est un projet ayant comme objectif d'instrualiser une application.
+Trois taches principales sont à effectuer:
+	- Utilisation d'un workflow GIT
+	- Présence d'une application fonctionnelle
+	- Utilisation de Docker comme systeme de conteneurisation
+
+Workflow GIT défini : Git-Flow
+	1 branche "master" contient les versions stables du projet
+	1 branche "developp" contient le développement du projet. On y prépare  	les changement en vue de la prochaine release dans "master"
+	
+	Des branches secondaires "feature" contenant chaque fonctionnalité.
+
+Type d'application : TODO-List
+
+
+Autres :
+
+	- Utilisation des conventions de codage Karma-Runner.
