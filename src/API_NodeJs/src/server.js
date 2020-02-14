@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongodb = require('mongodb');
-
+const RouteBuilder = require('./routes');
 const config = require('./db');
 const PORT = 4000;
 const client = mongodb.MongoClient;
@@ -15,9 +15,7 @@ client.connect(config.DB, function(err, db) {
     }
 });
 
-app.get('/', function(req, res) {
-    res.json({"hello": "world"});
-});
+RouteBuilder.build(app);
 
 app.listen(PORT, function(){
     console.log('Your node js server is running on PORT:',PORT);
