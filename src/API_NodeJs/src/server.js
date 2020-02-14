@@ -1,16 +1,24 @@
-'use strict';
-
 const express = require('express');
-
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-// App
 const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello World');
+const mongodb = require('mongodb');
+
+const config = require('./db');
+const PORT = 4000;
+const client = mongodb.MongoClient;
+
+client.connect(config.DB, function(err, db) {
+    if(err) {
+        console.log('database is not connected')
+    }
+    else {
+        console.log('connected!!')
+    }
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.get('/', function(req, res) {
+    res.json({"hello": "world"});
+});
+
+app.listen(PORT, function(){
+    console.log('Your node js server is running on PORT:',PORT);
+});
