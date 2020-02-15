@@ -6,12 +6,13 @@ const Activities = require('../../src/models/activities');
 class ActivitiesController{
 
         async createActivities(name,description,importanceLevel,time){
-
+        
         var newActivities = new Activities({
             name:name,
             description: description,
             importanceLevel:importanceLevel,
-            time:time
+            time:time,
+            isEnd:false
         });
 
         newActivities.save(function(err){
@@ -20,10 +21,13 @@ class ActivitiesController{
 
         return newActivities;
         }
-        async getById(id){
-            return  Attraction.findOne({
-                _id : id
-            });
-        };
+        async isExist(name){
+            return await Activities.find({
+                name:name
+            })
+        }
+        async listActivities(){
+            return await Activities.find();
+        }
 }
 module.exports = new ActivitiesController();

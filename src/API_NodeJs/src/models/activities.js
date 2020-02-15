@@ -16,5 +16,8 @@ module.exports = mongoose.model('Activities', new Schema({
         },
   time: {type : Date,
             required : true,
+        },
+  isEnd: {type: Boolean,
+            required : true,
         }
 }));

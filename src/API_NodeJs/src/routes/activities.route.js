@@ -18,7 +18,15 @@ router.post('/new', async(req, res)=>{
     const description = req.body.description;
     const importanceLevel = req.body.importanceLevel;
     const time = req.body.time;
-   
+    
+    // const isExist = await ActivitiesController.isExist(name);
+    // if(isExist){
+    //     res.send(400);
+    //     res.json({
+    //         success : false,
+    //         message : "Une tache avec le meme nom existe déja"
+    //     });
+    // }
     const p = await ActivitiesController.createActivities(name,description,importanceLevel,time);
     if(p === undefined){
       res.send(400);
@@ -31,6 +39,20 @@ router.post('/new', async(req, res)=>{
       res.sendStatus(201).end;
     } 
   
-   });
-
+});
+router.get('/', async(req, res)=>{
+    const p = await ActivitiesController.listActivities();
+    if(p)
+    {
+        res.json(p);
+    }
+    else{
+        res.sendStatus(403);
+       res.json({
+        success : false,
+        message : "Erreur de listage"
+        });
+    }
+     
+});
 module.exports = router;

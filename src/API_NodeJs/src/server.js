@@ -1,19 +1,25 @@
 const express = require('express');
 const app = express();
 const mongodb = require('mongodb');
+const mongoose = require('mongoose');
 const RouteBuilder = require('./routes');
 const config = require('./db');
 const PORT = 4000;
 const client = mongodb.MongoClient;
 
-client.connect(config.DB, function(err, db) {
-    if(err) {
-        console.log('database is not connected')
+mongoose.connect(config.DB,{
+    useNewUrlParser: true,
+   useUnifiedTopology: true,
+},function(err,db){
+    if(err){
+        console.log('database is not connected');
+        throw(err);
     }
-    else {
-        console.log('connected!!')
+    else{
+        console.log('connected!!');
     }
-});
+})
+
 
 RouteBuilder.build(app);
 
