@@ -23,3 +23,11 @@ Autres :
 
 	- Utilisation des conventions de codage Karma-Runner.
 	(http://karma-runner.github.io/4.0/dev/git-commit-msg.html)
+	
+Lancement : 
+
+	- se positionner à la racine (ou se trouve le ficher docker-compose.yml
+	- entrer la commande "docker-compose build"
+	- entrer la commande "docker-compose up"
+	
+	(ne pas oublier d'installer les packages à l'aide de "npm install")
