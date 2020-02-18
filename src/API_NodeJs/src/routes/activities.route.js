@@ -13,23 +13,33 @@ router.get('/test',async(req,res)=>{
         message : "API Connecté"
       });
 })
+router.post('/setEnd', async(req,res) =>{
+
+    const name = req.body.name;
+    
+    const p = await ActivitiesController.setEndActivities(name);
+
+    res.sendStatus(200);
+    res.json(p);
+})
 router.post('/new', async(req, res)=>{
     const name = req.body.name;
     const description = req.body.description;
     const importanceLevel = req.body.importanceLevel;
     const time = req.body.time;
     
-    // const isExist = await ActivitiesController.isExist(name);
-    // if(isExist){
-    //     res.send(400);
-    //     res.json({
-    //         success : false,
-    //         message : "Une tache avec le meme nom existe déja"
-    //     });
-    // }
+    const isExist = await ActivitiesController.isExist(name);
+    if(isExist){
+        res.json({
+          success : false,
+          message : "Une tache avec le meme nom existe déja"
+        });
+        res.send(400);
+        
+    }
     const p = await ActivitiesController.createActivities(name,description,importanceLevel,time);
     if(p === undefined){
-      res.send(400);
+      res.send(200);
       res.json({
         success : false,
         message : "Impossible de creer cette tache"
@@ -55,4 +65,32 @@ router.get('/', async(req, res)=>{
     }
      
 });
+router.get('/workingActivities',async(req,res)=>{
+    const p = await ActivitiesController.listActivitiesWorking();
+    if(p)
+    {
+        res.json(p);
+    }
+    else{
+        res.sendStatus(403);
+       res.json({
+        success : false,
+        message : "Erreur de listage"
+        });
+    }
+})
+router.get('/EndActivities',async(req,res)=>{
+  const p = await ActivitiesController.listActivitiesEnd();
+  if(p)
+  {
+      res.json(p);
+  }
+  else{
+      res.sendStatus(403);
+     res.json({
+      success : false,
+      message : "Erreur de listage"
+      });
+  }
+})
 module.exports = router;

@@ -5,8 +5,8 @@ const Activities = require('../../src/models/activities');
 
 class ActivitiesController{
 
-        async createActivities(name,description,importanceLevel,time){
-        
+        async createActivities(name,description,importanceLevel,timeString){
+        const time = new Date(timeString);
         var newActivities = new Activities({
             name:name,
             description: description,
@@ -28,6 +28,29 @@ class ActivitiesController{
         }
         async listActivities(){
             return await Activities.find();
+        }
+        async listActivitiesEnd(){
+            return await Activities.find({
+                isEnd : true
+            });
+        }
+        async listActivitiesWorking(){
+            return await Activities.find({
+                isEnd : false
+            });
+        }
+        async setEndActivities(id){
+            var activitie = await Activities.findOne({
+                _id : id
+            });
+         
+            activitie.isEnd = true;
+            activitie.save(function(err){
+                if(err) throw err;
+            });
+            const p = "Tache terminée";
+            return p;
+            
         }
 }
 module.exports = new ActivitiesController();
