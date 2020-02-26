@@ -27,16 +27,7 @@ router.post('/new', async(req, res)=>{
     const description = req.body.description;
     const importanceLevel = req.body.importanceLevel;
     const time = req.body.time;
-    
-    const isExist = await ActivitiesController.isExist(name);
-    if(isExist){
-        res.json({
-          success : false,
-          message : "Une tache avec le meme nom existe déja"
-        });
-        res.send(400);
-        
-    }
+
     const p = await ActivitiesController.createActivities(name,description,importanceLevel,time);
     if(p === undefined){
       res.send(200);

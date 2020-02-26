@@ -1,52 +1,48 @@
-import javax.swing.*;
+import java.time.LocalDateTime;
 
 public class Task {
-    int id = 0;
+    int id;
     String nameTask;
-    String levelImportance;
+    int levelImportance;
+    String description;
+    String currentTime;
 
-    // Constructeur par defaut
-    public Task(){
-        System.out.println("A task was created");
-        nameTask = " ";
-        levelImportance = " ";
-        id ++;
-    }
 
     //Constructeur avec parametres
-    public Task(String pNameTask, String pLevelImportance){
+    public Task(String pNameTask, int pLevelImportance, String pdescription){
         System.out.println("Create one task with params");
-        pNameTask = nameTask;
-        pLevelImportance = levelImportance;
-        id ++;
+        this.nameTask = pNameTask;
+        this.levelImportance = pLevelImportance;
+        this.description = pdescription;
+        this.currentTime = LocalDateTime.now().toString();
     }
 
-    public String getLevelImportance(){
-        return levelImportance;
-    }
-
-    public String getNameTask(){
-        return  nameTask;
-    }
-
-    public int getId(){
-        return  id;
-    }
+//    public int getLevelImportance(){
+//        return levelImportance;
+//    }
+//
+//    public String getNameTask(){
+//        return  nameTask;
+//    }
+//
+//    public int getId(){
+//        return  id;
+//    }
 
     //en commentaire pour l'instant
 //    public void setId(int id) {
 //        this.id = id;
 //    }
 
-    public void setLevelImportance(String pLevelImportance) {
-        levelImportance = pLevelImportance;
-    }
-
-    public void setNameTask(String pNameTask) {
-        nameTask = pNameTask;
-    }
-
-    public String toString(){
-        return this.id + "/t ==>>" + this.nameTask + this.levelImportance;
-    }
+//    public void setLevelImportance(String pLevelImportance) {
+//        levelImportance = pLevelImportance;
+//    }
+//
+//    public void setNameTask(String pNameTask) {
+//        nameTask = pNameTask;
+//    }
+//
+//    public String toString(){
+//        return this.id + "/t ==>>" + this.nameTask + this.levelImportance;
+//    }
 }
