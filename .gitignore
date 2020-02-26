@@ -9,3 +9,4 @@ src/ToDoListApp/build.gradle
 src/ToDoListApp/gradlew
 src/ToDoListApp/gradlew.bat
 src/ToDoListApp/settings.gradle
+src/ToDoListApp/.project
