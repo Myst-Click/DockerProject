@@ -10,7 +10,6 @@ public class Task {
 
     //Constructeur avec parametres
     public Task(String pNameTask, int pLevelImportance, String pdescription){
-        System.out.println("Create one task with params");
         this.nameTask = pNameTask;
         this.levelImportance = pLevelImportance;
         this.description = pdescription;

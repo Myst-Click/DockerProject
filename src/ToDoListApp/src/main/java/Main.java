@@ -1,20 +1,21 @@
 import java.util.List;
-import java.util.*;
+import java.util.Scanner;
 
-public class MyMain {
+public class Main {
     public static void main(String[] args) throws Exception {
+        Request request = new Request();
         System.out.println("----------------------------------------------MY TODOLIST----------------------------------------------");
-        var isEnd = false;
+        boolean isEnd = false;
+        System.out.println("Bienvenue sur votre Liste de Tache");
         while(!isEnd)
         {
-            System.out.println("Bienvenue sur votre Liste de Tache");
-            System.out.println("Voulez vous afficher vos taches ? (1) ou creer une nouvelle tache ? (2)");
+            System.out.println("Voulez vous afficher vos taches ? (1), creer une nouvelle tache ? (2) ou quitter l'application ? (3)");
 
             Scanner sc = new Scanner(System.in);
 
             String str = sc.nextLine();
 
-            if(str == "1")
+            if(str.equals("1"))
             {
                 List<Task> activities = request.getActivities();
 
@@ -24,9 +25,9 @@ public class MyMain {
                     System.out.println("Importance de la tache: " + activitie.levelImportance + "\n");
                 }
             }
-            else if(str == "2")
+            else if(str.equals("2"))
             {
-                var isOk = false;
+                boolean isOk = false;
                 while(!isOk)
                 {
                     System.out.println("Saisir un nom de Tache");
@@ -34,8 +35,8 @@ public class MyMain {
                     System.out.println("Saisir votre description");
                     String description = sc.nextLine();
                     System.out.println("Saisir le niveau d'importance (1 a 3)");
-                    int level  = Integer.parseint(sc.nextLine());
-    
+                    int level  = Integer.parseInt(sc.nextLine());
+
                     if(level < 1 || level > 3){
                         System.out.println("le level n'est pas possible");
                     }
@@ -56,14 +57,19 @@ public class MyMain {
                     else{
                         isOk = true;
                     }
+                    if(isOk)
+                    {
+                        request.createTask(name,description,level);
+                    }
 
-                    
                 }
-                
-
 
             }
-            else 
+            else if(str.equals("3"))
+            {
+                isEnd = true;
+            }
+            else
             {
                 System.out.println("Aucune action pour ceci");
             }

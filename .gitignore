@@ -1,11 +1,5 @@
 src/API_NodeJs/src/node_modules
-src/ToDoListApp/.idea
 src/ToDoListApp/bin
 src/ToDoListApp/build
-src/ToDoListApp/gradle
 src/ToDoListApp/out
-src/ToDoListApp/build.gradle
-src/ToDoListApp/gradlew
-src/ToDoListApp/gradlew.bat
-src/ToDoListApp/settings.gradle
 src/ToDoListApp/.project
