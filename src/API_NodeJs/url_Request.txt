@@ -1,0 +1,6 @@
+
+localhost:27018/activities ->  /new                 Creer nouvelle tache
+                               /setEnd              Terminer une tache
+                               /                    Voir toutes les taches
+                               /workingActivities   Voir les taches en cours
+                               /EndActivities       Voir les taches terminées
