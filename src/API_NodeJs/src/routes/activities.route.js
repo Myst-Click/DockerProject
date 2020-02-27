@@ -6,13 +6,13 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 const ActivitiesController = require('../controllers/activities.controller.js')
 
-router.get('/test',async(req,res)=>{
-    res.sendStatus(200);
-      res.json({
-        success : true,
-        message : "API Connecté"
-      });
-})
+// router.get('/test',async(req,res)=>{
+//     res.sendStatus(200);
+//       res.json({
+//         success : true,
+//         message : "API Connecté"
+//       });
+
 router.post('/setEnd', async(req,res) =>{
 
     const name = req.body.name;
