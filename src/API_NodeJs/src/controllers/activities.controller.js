@@ -39,9 +39,9 @@ class ActivitiesController{
                 isEnd : false
             });
         }
-        async setEndActivities(id){
+        async setEndActivities(name){
             var activitie = await Activities.findOne({
-                _id : id
+                name : name
             });
          
             activitie.isEnd = true;
