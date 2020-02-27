@@ -16,10 +16,10 @@ public class Request {
     public List<Task> getActivities(int Status) throws Exception {
         String finalurl = "";
         if(Status == 3){
-          finalurl = "EndActivities";
+            finalurl = "EndActivities";
         }
         else if(Status == 2){
-          finalurl = "workingActivities";
+            finalurl = "workingActivities";
         }
         URL obj = new URL(this.url + finalurl);
 
